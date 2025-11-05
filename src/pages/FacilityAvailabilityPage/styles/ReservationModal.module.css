@@ -1,0 +1,320 @@
+/* Modal styles - Mobile first */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(35, 24, 40, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(249, 230, 230, 0.95));
+  border-radius: 16px;
+  padding: 1.2rem;
+  max-width: 90%;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(35, 24, 40, 0.4);
+  position: relative;
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modalClose {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: rgba(35, 24, 40, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #231828;
+}
+
+.modalClose:hover {
+  background: rgba(35, 24, 40, 0.2);
+  transform: rotate(90deg);
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.modalIcon {
+  color: #231828;
+  margin-bottom: 0.8rem;
+}
+
+.modalHeader h3 {
+  font-size: 1.2rem;
+  color: #231828;
+  margin: 0;
+  font-weight: 700;
+}
+
+.modalBody {
+  text-align: center;
+}
+
+.modalMessage {
+  font-size: 0.85rem;
+  color: #231828;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.qrCodeSection {
+  margin: 1.2rem 0;
+}
+
+.qrCodePlaceholder {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(35, 24, 40, 0.1);
+  border: 3px solid #231828;
+  position: relative;
+  overflow: hidden;
+}
+
+.qrCodePlaceholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(102, 126, 234, 0.1) 100%);
+  animation: qrPulse 2s ease-in-out infinite;
+}
+
+@keyframes qrPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.qrCodeIcon {
+  color: #231828;
+  opacity: 0.6;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.qrCodeLabel {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: #231828;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: rgba(35, 24, 40, 0.5);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid rgba(35, 24, 40, 0.2);
+}
+
+.divider span {
+  padding: 0 1rem;
+}
+
+.modalDownloadButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.modalDownloadButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.modalDownloadButton:active {
+  transform: translateY(0);
+}
+
+.installNote {
+  font-size: 0.75rem;
+  color: rgba(35, 24, 40, 0.6);
+  margin: 0 0 1rem 0;
+  font-style: italic;
+}
+
+.appFeatures {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #231828;
+}
+
+.feature svg {
+  color: #4ade80;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* Tablet and up (min-width: 641px) */
+@media (min-width: 641px) {
+  .modalContent {
+    max-width: 480px;
+    padding: 1.5rem;
+  }
+
+  .modalClose {
+    width: 32px;
+    height: 32px;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .modalHeader h3 {
+    font-size: 1.4rem;
+  }
+
+  .modalMessage {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .qrCodeSection {
+    margin: 1.5rem 0;
+  }
+
+  .qrCodePlaceholder {
+    padding: 1.5rem;
+  }
+
+  .qrCodeIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .qrCodeLabel {
+    font-size: 0.9rem;
+  }
+
+  .divider {
+    margin: 1.8rem 0;
+    font-size: 0.9rem;
+  }
+
+  .modalDownloadButton {
+    padding: 1rem 1.8rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .installNote {
+    font-size: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .appFeatures {
+    margin-top: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .feature {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .feature svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Laptop and up (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .modalDownloadButton {
+    padding: 1.1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .installNote {
+    font-size: 0.85rem;
+  }
+}

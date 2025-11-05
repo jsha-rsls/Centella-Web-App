@@ -1,0 +1,576 @@
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Rewritten with mobile-first approach - base styles for mobile, min-width media queries for larger screens */
+
+/* Base styles - Mobile first (< 640px) */
+.scheduleSection {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(35, 24, 40, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  max-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.selectedDateHeader {
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid rgba(35, 24, 40, 0.1);
+}
+
+.dateInfo {
+  margin-bottom: 0.8rem;
+}
+
+.dateTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.calendarIcon {
+  color: #231828;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.dateTitle h3 {
+  font-size: 1rem;
+  color: #231828;
+  margin: 0;
+  font-weight: 700;
+}
+
+.todayBadge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 16px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.facilityName {
+  font-size: 0.75rem;
+  color: #5d5563;
+  margin: 0;
+  font-weight: 500;
+  font-style: italic;
+  padding-left: 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.statCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 230, 230, 0.5) 100%);
+  border: 1px solid rgba(35, 24, 40, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(35, 24, 40, 0.15);
+}
+
+.statIconAvailable {
+  color: #28a745;
+  width: 18px;
+  height: 18px;
+}
+
+.statIconReserved {
+  color: #dc3545;
+  width: 18px;
+  height: 18px;
+}
+
+.statIconTotal {
+  color: #667eea;
+  width: 18px;
+  height: 18px;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.statNumber {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #231828;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.6rem;
+  color: #5d5563;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+}
+
+.selectedDateContent {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+  margin-top: 0.8rem;
+}
+
+.selectedDateContent::-webkit-scrollbar {
+  width: 5px;
+}
+
+.selectedDateContent::-webkit-scrollbar-track {
+  background: rgba(35, 24, 40, 0.05);
+  border-radius: 10px;
+}
+
+.selectedDateContent::-webkit-scrollbar-thumb {
+  background: rgba(35, 24, 40, 0.2);
+  border-radius: 10px;
+}
+
+.selectedDateContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(35, 24, 40, 0.3);
+}
+
+.noData {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #8c8585;
+}
+
+.noDataIcon {
+  color: rgba(35, 24, 40, 0.3);
+  margin: 0 auto 0.8rem;
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.noData p {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.availableDay {
+  padding: 0.5rem 0;
+}
+
+.availableDay p {
+  font-size: 0.75rem;
+  color: #4a4450;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.reservedDay {
+  padding: 0.5rem 0;
+}
+
+.statusBadge {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.availableBadge {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.timelineView {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.slotRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.timeCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  border: 1.5px solid;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex: 1;
+}
+
+.timeCard:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(35, 24, 40, 0.15);
+}
+
+.timeCardAvailable {
+  background: linear-gradient(135deg, rgba(212, 246, 212, 0.9) 0%, rgba(168, 230, 168, 0.8) 100%);
+  border-color: rgba(40, 167, 69, 0.4);
+}
+
+.timeCardAvailable:hover {
+  border-color: rgba(40, 167, 69, 0.6);
+}
+
+.timeCardReserved {
+  background: linear-gradient(135deg, rgba(255, 204, 203, 0.9) 0%, rgba(255, 179, 179, 0.8) 100%);
+  border-color: rgba(220, 53, 69, 0.4);
+}
+
+.timeCardReserved:hover {
+  border-color: rgba(220, 53, 69, 0.6);
+}
+
+.timeCardTime {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #231828;
+  font-family: 'Inter', 'Monaco', 'Courier New', monospace;
+}
+
+.timeCardTime svg {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.timeCardStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.timeCardStatus span {
+  color: #231828;
+}
+
+.timeCardStatus svg {
+  width: 14px;
+  height: 14px;
+}
+
+.iconAvailable {
+  color: #1e5e1e;
+}
+
+.iconReserved {
+  color: #8b0000;
+}
+
+.reserveIconButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.reserveIconButton svg {
+  width: 14px;
+  height: 14px;
+}
+
+.reserveIconButton:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+}
+
+.reserveIconButton:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Tablet and up (min-width: 641px) */
+@media (min-width: 641px) {
+  .scheduleSection {
+    padding: 1.2rem;
+    border-radius: 16px;
+    max-height: 650px;
+  }
+
+  .selectedDateHeader {
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+  }
+
+  .dateInfo {
+    margin-bottom: 1rem;
+  }
+
+  .dateTitle {
+    gap: 0.5rem;
+  }
+
+  .calendarIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dateTitle h3 {
+    font-size: 1.2rem;
+  }
+
+  .todayBadge {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.65rem;
+  }
+
+  .facilityName {
+    font-size: 0.85rem;
+    padding-left: 26px;
+  }
+
+  .statsGrid {
+    gap: 0.5rem;
+  }
+
+  .statCard {
+    padding: 0.6rem;
+    border-radius: 10px;
+  }
+
+  .statIconAvailable,
+  .statIconReserved,
+  .statIconTotal {
+    width: 20px;
+    height: 20px;
+  }
+
+  .statNumber {
+    font-size: 1.3rem;
+  }
+
+  .statLabel {
+    font-size: 0.65rem;
+  }
+
+  .selectedDateContent {
+    padding-right: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .selectedDateContent::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .noDataIcon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .noData {
+    padding: 2.5rem 1rem;
+  }
+
+  .noData p {
+    font-size: 0.95rem;
+  }
+
+  .availableDay p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .availableBadge {
+    padding: 0.55rem 1.3rem;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .timelineView {
+    gap: 0.5rem;
+  }
+
+  .slotRow {
+    gap: 0.5rem;
+  }
+
+  .timeCard {
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+  }
+
+  .timeCardTime,
+  .timeCardStatus {
+    font-size: 0.8rem;
+    gap: 0.5rem;
+  }
+
+  .timeCardTime svg,
+  .timeCardStatus svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .reserveIconButton {
+    padding: 0.6rem;
+    border-radius: 10px;
+  }
+
+  .reserveIconButton svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Laptop and up (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .scheduleSection {
+    flex: 0 0 35%;
+    padding: 1.4rem;
+    max-height: 700px;
+  }
+
+  .selectedDateHeader {
+    margin-bottom: 1.4rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .dateTitle h3 {
+    font-size: 1.25rem;
+  }
+
+  .todayBadge {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .facilityName {
+    font-size: 0.9rem;
+  }
+
+  .statsGrid {
+    gap: 0.6rem;
+  }
+
+  .statCard {
+    padding: 0.7rem;
+  }
+
+  .statIconAvailable,
+  .statIconReserved,
+  .statIconTotal {
+    width: 22px;
+    height: 22px;
+  }
+
+  .statNumber {
+    font-size: 1.4rem;
+  }
+
+  .statLabel {
+    font-size: 0.7rem;
+  }
+
+  .availableDay p {
+    font-size: 0.9rem;
+  }
+
+  .availableBadge {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .timelineView {
+    gap: 0.6rem;
+  }
+
+  .slotRow {
+    gap: 0.6rem;
+  }
+
+  .timeCard {
+    padding: 0.7rem 1rem;
+  }
+
+  .timeCardTime,
+  .timeCardStatus {
+    font-size: 0.85rem;
+  }
+
+  .timeCardTime svg,
+  .timeCardStatus svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .reserveIconButton {
+    padding: 0.7rem;
+  }
+
+  .reserveIconButton svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Desktop and up (min-width: 1441px) */
+@media (min-width: 1441px) {
+  .scheduleSection {
+    flex: 0 0 30%;
+    padding: 1.5rem;
+  }
+
+  .dateTitle h3 {
+    font-size: 1.3rem;
+  }
+
+  .statNumber {
+    font-size: 1.4rem;
+  }
+}

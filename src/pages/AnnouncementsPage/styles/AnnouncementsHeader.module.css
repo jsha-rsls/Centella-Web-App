@@ -1,0 +1,99 @@
+/* ==================== MOBILE FIRST - BASE STYLES ==================== */
+
+.header {
+  background: transparent;
+  padding: clamp(2rem, 8vw, 3rem) clamp(1rem, 4vw, 2rem) clamp(1.5rem, 6vw, 2.5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: clamp(1.5rem, 5vw, 2rem);
+}
+
+.header h1 {
+  font-size: clamp(1.5rem, 7vw, 2.5rem);
+  color: white;
+  margin: 0 0 clamp(0.5rem, 2vw, 0.75rem) 0;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  position: relative;
+  z-index: 1;
+  line-height: 1.2;
+}
+
+.header p {
+  font-size: clamp(0.875rem, 4vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+  line-height: 1.5;
+}
+
+/* ==================== TABLET - 640px and up ==================== */
+@media (min-width: 640px) {
+  .header {
+    padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.5rem, 3vw, 2rem) clamp(2rem, 5vw, 3rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .header h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    margin: 0 0 clamp(0.5rem, 1.5vw, 0.75rem) 0;
+  }
+
+  .header p {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+}
+
+/* ==================== TABLET LANDSCAPE - 768px and up ==================== */
+@media (min-width: 768px) {
+  .header {
+    padding: 3rem 2rem 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+}
+
+/* ==================== LAPTOP - 1024px and up ==================== */
+@media (min-width: 1024px) {
+  .header {
+    padding: clamp(3rem, 5vw, 3.5rem) clamp(2rem, 4vw, 2.5rem) clamp(2.5rem, 4vw, 3rem);
+    margin-bottom: clamp(1.75rem, 3vw, 2.25rem);
+  }
+
+  .header h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: clamp(0.6rem, 1vw, 0.75rem);
+  }
+
+  .header p {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+  }
+}
+
+/* ==================== DESKTOP - 1440px and up ==================== */
+@media (min-width: 1440px) {
+  .header {
+    padding: 4rem 2rem 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .header p {
+    font-size: 1.1rem;
+  }
+}

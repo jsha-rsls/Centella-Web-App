@@ -1,0 +1,558 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpMobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ==================== MOBILE FIRST - BASE STYLES ==================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(35, 24, 40, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  padding: clamp(0.5rem, 3vw, 1.5rem);
+  animation: fadeIn 0.2s ease-out;
+  overflow: hidden;
+}
+
+.modalContent {
+  background: white;
+  border-radius: clamp(12px, 3vw, 20px);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUpMobile 0.3s ease-out;
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+}
+
+/* Custom scrollbar */
+.modalContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background-color: #d4d4d4;
+  border-radius: 4px;
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background-color: #b4b4b4;
+}
+
+/* ==================== CLOSE BUTTON ==================== */
+
+.closeButton {
+  position: absolute;
+  top: clamp(1rem, 3vw, 1.25rem);
+  right: clamp(1rem, 3vw, 1.25rem);
+  background: rgba(249, 230, 230, 0.9);
+  border: none;
+  color: #231828;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  width: clamp(36px, 10vw, 40px);
+  height: clamp(36px, 10vw, 40px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  background: #231828;
+  color: white;
+  transform: rotate(90deg);
+  box-shadow: 0 4px 12px rgba(35, 24, 40, 0.3);
+}
+
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+.closeButton svg {
+  width: clamp(18px, 4vw, 20px);
+  height: clamp(18px, 4vw, 20px);
+}
+
+/* ==================== MODAL HEADER ==================== */
+
+.modalHeader {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  padding-bottom: clamp(1rem, 3vw, 1.5rem);
+  border-bottom: 2px solid #F9E6E6;
+}
+
+.categoryBadge {
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.3rem, 1vw, 0.5rem);
+  padding: clamp(0.35rem, 1vw, 0.5rem) clamp(0.7rem, 2vw, 1rem);
+  border-radius: clamp(6px, 1.5vw, 10px);
+  color: white;
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+.category svg {
+  width: clamp(12px, 3vw, 14px);
+  height: clamp(12px, 3vw, 14px);
+  flex-shrink: 0;
+}
+
+.categoryAnnouncement {
+  background: linear-gradient(135deg, #231828, #3d2e42);
+}
+
+.categoryUpdate {
+  background: linear-gradient(135deg, #6c757d, #5a6268);
+}
+
+/* ==================== MODAL TITLE ==================== */
+
+.modalTitle {
+  font-size: clamp(1.35rem, 5vw, 2rem);
+  color: #231828;
+  margin: 0 0 clamp(0.75rem, 2vw, 1rem) 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  padding-right: clamp(2rem, 5vw, 3rem);
+}
+
+/* ==================== MODAL META ==================== */
+
+.modalMeta {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.3rem, 1vw, 0.5rem);
+  color: #8C8585;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  font-weight: 500;
+  padding: clamp(0.3rem, 1vw, 0.4rem) clamp(0.6rem, 1.5vw, 0.75rem);
+  background: #F9E6E6;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.metaItem svg {
+  width: clamp(14px, 3vw, 16px);
+  height: clamp(14px, 3vw, 16px);
+  color: #231828;
+  flex-shrink: 0;
+}
+
+/* ==================== IMAGE ==================== */
+
+.imageWrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.modalImage {
+  width: 100%;
+  max-height: clamp(180px, 60vw, 450px);
+  object-fit: cover;
+  display: block;
+}
+
+/* ==================== MODAL BODY ==================== */
+
+.modalBody {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.modalDescription {
+  color: #4a4a4a;
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+}
+
+/* ==================== TYPOGRAPHY STYLES ==================== */
+
+.modalDescription h1,
+.modalDescription h2,
+.modalDescription h3,
+.modalDescription h4,
+.modalDescription h5,
+.modalDescription h6 {
+  margin: clamp(1rem, 3vw, 1.75em) 0 clamp(0.5rem, 1.5vw, 0.75em) 0;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #231828;
+}
+
+.modalDescription h1 {
+  font-size: clamp(1.5rem, 5vw, 2em);
+  border-bottom: 3px solid #F9E6E6;
+  padding-bottom: 0.3em;
+}
+
+.modalDescription h2 {
+  font-size: clamp(1.35rem, 4vw, 1.75em);
+  border-bottom: 2px solid #F9E6E6;
+  padding-bottom: 0.3em;
+}
+
+.modalDescription h3 {
+  font-size: clamp(1.2rem, 3.5vw, 1.5em);
+}
+
+.modalDescription h4 {
+  font-size: clamp(1.05rem, 3vw, 1.25em);
+}
+
+.modalDescription h5 {
+  font-size: clamp(1rem, 2.5vw, 1.1em);
+}
+
+.modalDescription h6 {
+  font-size: clamp(0.95rem, 2.5vw, 1em);
+}
+
+.modalDescription p {
+  margin-bottom: clamp(0.75rem, 2vw, 1.2em);
+  text-align: justify;
+}
+
+.modalDescription strong,
+.modalDescription b {
+  font-weight: 700;
+  color: #231828;
+}
+
+.modalDescription em,
+.modalDescription i {
+  font-style: italic;
+}
+
+.modalDescription u {
+  text-decoration: underline;
+  text-decoration-color: #231828;
+  text-decoration-thickness: 1.5px;
+}
+
+/* ==================== LISTS ==================== */
+
+.modalDescription ul,
+.modalDescription ol {
+  margin: clamp(0.75rem, 2vw, 1.2em) 0;
+  padding-left: clamp(1.5rem, 4vw, 2em);
+}
+
+.modalDescription li {
+  margin-bottom: clamp(0.4rem, 1vw, 0.6em);
+  line-height: 1.7;
+}
+
+.modalDescription ul {
+  list-style-type: disc;
+}
+
+.modalDescription ul li::marker {
+  color: #231828;
+}
+
+.modalDescription ol {
+  list-style-type: decimal;
+}
+
+.modalDescription ol li::marker {
+  color: #231828;
+  font-weight: 600;
+}
+
+.modalDescription ul ul,
+.modalDescription ol ol,
+.modalDescription ul ol,
+.modalDescription ol ul {
+  margin: clamp(0.3rem, 1vw, 0.5em) 0;
+}
+
+/* ==================== LINKS ==================== */
+
+.modalDescription a {
+  color: #231828;
+  text-decoration: underline;
+  text-decoration-color: #F9E6E6;
+  text-decoration-thickness: 2px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.modalDescription a:hover {
+  text-decoration-color: #231828;
+  background: #F9E6E6;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+/* ==================== IMAGES IN CONTENT ==================== */
+
+.modalDescription img {
+  max-width: 100%;
+  height: auto;
+  margin: clamp(1rem, 3vw, 1.5em) 0;
+  border-radius: clamp(8px, 2vw, 12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.modalDescription img:hover {
+  transform: scale(1.02);
+}
+
+/* ==================== BLOCKQUOTES ==================== */
+
+.modalDescription blockquote {
+  margin: clamp(1.25rem, 3vw, 2em) 0;
+  padding: clamp(0.875rem, 3vw, 1.25em) clamp(1rem, 3vw, 1.75em);
+  border-left: 4px solid #231828;
+  background: linear-gradient(135deg, #F9E6E6, #fef5f5);
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.modalDescription blockquote p {
+  margin-bottom: 0;
+}
+
+/* ==================== CODE BLOCKS ==================== */
+
+.modalDescription pre {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  border-radius: 8px;
+  padding: clamp(0.875rem, 3vw, 1.25em);
+  overflow-x: auto;
+  margin: clamp(1rem, 2vw, 1.5em) 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: clamp(0.8rem, 2vw, 0.9em);
+}
+
+.modalDescription code {
+  background: #F9E6E6;
+  color: #231828;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9em;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.modalDescription pre code {
+  background: transparent;
+  color: #f8f8f2;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* ==================== TABLES ==================== */
+
+.modalDescription table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: clamp(0.875rem, 2vw, 1.5em) 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.modalDescription th,
+.modalDescription td {
+  border: 1px solid #e5e5e5;
+  padding: clamp(0.5rem, 2vw, 0.875em) clamp(0.6rem, 2vw, 1em);
+  text-align: left;
+}
+
+.modalDescription th {
+  background: linear-gradient(135deg, #231828, #3d2e42);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+}
+
+.modalDescription td {
+  background: white;
+}
+
+.modalDescription tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+.modalDescription tr:hover td {
+  background: #F9E6E6;
+  transition: background 0.2s ease;
+}
+
+/* ==================== MISC ELEMENTS ==================== */
+
+.modalDescription font {
+  display: inline;
+}
+
+.modalDescription hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #F9E6E6, transparent);
+  margin: clamp(1.25rem, 3vw, 2em) 0;
+}
+
+.modalDescription > *:first-child {
+  margin-top: 0;
+}
+
+.modalDescription > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================== TABLET - 640px and up ==================== */
+@media (min-width: 640px) {
+  .modal {
+    align-items: center;
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .modalContent {
+    border-radius: 20px;
+    max-width: 600px;
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .modalHeader {
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .modalTitle {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .modalBody {
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+  }
+}
+
+/* ==================== TABLET LANDSCAPE - 768px and up ==================== */
+@media (min-width: 768px) {
+  .modalContent {
+    max-width: 700px;
+    max-height: 90vh;
+  }
+
+  .modalHeader {
+    padding: 2.5rem 2.5rem 1.5rem;
+  }
+
+  .modalTitle {
+    font-size: 2rem;
+  }
+
+  .modalBody {
+    padding: 2.5rem;
+  }
+
+  .modalDescription {
+    font-size: 1.05rem;
+  }
+}
+
+/* ==================== LAPTOP - 1024px and up ==================== */
+@media (min-width: 1024px) {
+  .modalContent {
+    max-width: 800px;
+    max-height: 90vh;
+  }
+
+  .modalImage {
+    max-height: 450px;
+  }
+}
+
+/* ==================== DESKTOP - 1440px and up ==================== */
+@media (min-width: 1440px) {
+  .modalContent {
+    max-width: 900px;
+  }
+
+  .modalHeader {
+    padding: 2.5rem 2.5rem 1.5rem;
+  }
+
+  .modalTitle {
+    font-size: 2rem;
+  }
+
+  .modalBody {
+    padding: 2.5rem;
+  }
+}

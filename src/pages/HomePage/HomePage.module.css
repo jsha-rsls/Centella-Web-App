@@ -1,0 +1,538 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ───────────────────────────────
+   CSS Variables for Consistency
+─────────────────────────────── */
+:root {
+  --color-primary: #231828;
+  --color-secondary: #F9E6E6;
+  --color-accent: #1bbd29;
+  --color-text-dark: #231828;
+  --color-text-light: #8C8585;
+  --color-text-muted: #5d5563;
+  --border-radius-sm: 8px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 12px;
+  --transition-fast: 0.2s ease;
+  --transition-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.18), 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ───────────────────────────────
+   Base Layout
+─────────────────────────────── */
+.homePage {
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #231828 0%, #3d2e42 40%, #8b7b8f 70%, #F9E6E6 100%);
+  background-attachment: fixed;
+}
+
+/* ───────────────────────────────
+   Hero Section
+─────────────────────────────── */
+.hero {
+  background: transparent;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.heroCard {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.mobileLogo {
+  display: none;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.logoBox {
+  width: 80px;           /* fixed pink box size */
+  height: 80px;
+  border-radius: 19px;
+  background: #F9E6E6;   /* pink background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImage {
+  width: 100px;           /* control logo image only */
+  height: 100px;
+  object-fit: contain;
+}
+
+.heroContent h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.heroContent h2 {
+  font-size: clamp(1.25rem, 3.5vw, 1.8rem);
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.heroContent p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* ───────────────────────────────
+   Quick Links
+─────────────────────────────── */
+.quickLinks {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.quickLink {
+  background: rgba(255, 255, 255, 0.98);
+  padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.25rem);
+  transition: all var(--transition-standard);
+  flex: 1 1 280px;
+  min-width: min(280px, 100%);
+  max-width: 400px;
+  border: 2px solid rgba(228, 28, 28, 0.4);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.quickLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transform: scaleX(0);
+  transition: transform var(--transition-standard);
+}
+
+.quickLink:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.6);
+  background: white;
+}
+
+.quickLink:hover::before {
+  transform: scaleX(1);
+}
+
+.linkIcon {
+  min-width: clamp(50px, 10vw, 60px);
+  height: clamp(50px, 10vw, 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary);
+  border-radius: var(--border-radius-md);
+  border: var(--color-primary) 2px solid;
+  color: var(--color-primary);
+  transition: all var(--transition-standard);
+}
+
+.linkIcon svg {
+  width: clamp(24px, 5vw, 28px);
+  height: clamp(24px, 5vw, 28px);
+  stroke-width: 2;
+}
+
+.quickLink:hover .linkIcon {
+  background: var(--color-primary);
+  border: var(--color-accent) 2px solid;
+  color: white;
+  transform: scale(1.05);
+}
+
+.linkContent {
+  flex: 1;
+  text-align: left;
+}
+
+.quickLink h3 {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  letter-spacing: -0.015em;
+}
+
+.quickLink p {
+  font-size: clamp(0.85rem, 1.5vw, 0.9rem);
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.linkArrow {
+  color: var(--color-text-light);
+  transition: all var(--transition-standard);
+  display: flex;
+  align-items: center;
+}
+
+.linkArrow svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+.quickLink:hover .linkArrow {
+  color: var(--color-text-dark);
+  transform: translateX(4px);
+}
+
+/* ───────────────────────────────
+   Features Section
+─────────────────────────────── */
+.features {
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+  background: transparent;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.features h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 0.75rem;
+  color: white;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  transition: color var(--transition-standard);
+}
+
+.sectionHeader p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  transition: color var(--transition-standard);
+}
+
+/* Dynamic color change based on scroll position */
+.features[data-in-light="true"] h2 {
+  color: var(--color-primary);
+}
+
+.features[data-in-light="true"] .sectionHeader p {
+  color: #2e2b31;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.95);
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  border: 2px solid rgba(228, 28, 28, 0.4);
+  transition: all var(--transition-standard);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(249, 230, 230, 0.3) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-standard);
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.8);
+  background: white;
+}
+
+.feature:hover::before {
+  opacity: 1;
+}
+
+.featureIcon {
+  width: clamp(56px, 12vw, 64px);
+  height: clamp(56px, 12vw, 64px);
+  margin: 0 auto clamp(1rem, 2vw, 1.5rem);
+  background: var(--color-secondary);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  border: var(--color-primary) 2px solid;
+  transition: all var(--transition-standard);
+  position: relative;
+  z-index: 1;
+}
+
+.featureIcon svg {
+  width: clamp(28px, 6vw, 32px);
+  height: clamp(28px, 6vw, 32px);
+  stroke-width: 2;
+}
+
+.feature:hover .featureIcon {
+  background: var(--color-primary);
+  color: white;
+  border: var(--color-accent) 2px solid;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature h3 {
+  font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  position: relative;
+  z-index: 1;
+}
+
+.feature p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+/* ───────────────────────────────
+   Standard Breakpoints
+─────────────────────────────── */
+
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .mobileLogo {
+    display: flex;
+  }
+
+  .quickLinks {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quickLink {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .linkArrow {
+    display: none;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .mobileLogo {
+    display: flex;
+  }
+
+  .quickLinks {
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+  }
+
+  .quickLink {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .quickLinks {
+    max-width: 800px;
+  }
+
+  .quickLink {
+    flex: 1 1 calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .quickLinks {
+    max-width: 900px;
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .hero {
+    padding: 5rem 2rem;
+  }
+
+  .features {
+    padding: 5rem 2rem;
+  }
+
+  .quickLinks {
+    gap: 1.5rem;
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Ultra Wide Devices (1400px and up) */
+@media (min-width: 1400px) {
+  .container,
+  .heroContent {
+    max-width: 1400px;
+  }
+}
+
+/* Portrait Orientation Specific */
+@media (orientation: portrait) and (max-width: 767.98px) {
+  .hero {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Landscape Orientation Specific */
+@media (orientation: landscape) and (max-height: 600px) {
+  .hero {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .features {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .heroCard {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .quickLink,
+  .feature {
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .quickLink:hover,
+  .feature:hover {
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.15),
+      0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .quickLink:hover,
+  .feature:hover {
+    transform: none;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .quickLink,
+  .feature {
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.3),
+      0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}
