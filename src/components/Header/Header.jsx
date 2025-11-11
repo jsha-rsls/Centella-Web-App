@@ -28,7 +28,7 @@ const Header = () => {
             </div>
           </Link>
           <div className={styles.logoText}>
-            <h1>HOA Connect</h1>
+            <h1>Centella CARES</h1>
             <p>Centella Homes Subdivision</p>
           </div>
         </div>
