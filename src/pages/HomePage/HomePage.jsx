@@ -142,7 +142,7 @@ const HomePage = () => {
                 />
               </div>
             </div>
-            <h1>Welcome to HOA Connect</h1>
+            <h1>Welcome to Centella CARES</h1>
             <h2>Centella Homes Subdivision</h2>
             <p>Your gateway to community information and facility availability</p>
           </div>

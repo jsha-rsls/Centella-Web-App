@@ -30,7 +30,7 @@ const Footer = () => {
         <div className={styles.content}>
           {/* About Section */}
           <div className={styles.section}>
-            <h3>HOA Connect</h3>
+            <h3>Centella CARES</h3>
             <p>Centella Homes Subdivision</p>
             <p>Connecting our community through seamless digital experiences. Access announcements, check facility availability, and stay informed about community events.</p>
           </div>
